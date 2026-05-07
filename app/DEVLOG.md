@@ -13,3 +13,20 @@ Not sure yet how to build audit logic for calculating savings.
 
 Plan for tomorrow:
 Start building audit engine (core logic of the app).
+
+
+## Day 2 — 2026-05-07
+
+Hours worked:3
+
+What I did:
+Added audit logic with tool selection dropdown and dynamic result generation based on team size and spend.
+
+What I learned:
+How to use React state and conditional logic in Next.js.
+
+Blockers / what I'm stuck on:
+Need to improve audit recommendations with better pricing logic.
+
+Plan for tomorrow:
+Add real pricing data and improve audit calculations.
