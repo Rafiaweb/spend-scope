@@ -2,27 +2,46 @@
 
 import { useState } from "react";
 
+const pricing = {
+  "ChatGPT Plus": 20,
+  "ChatGPT Team": 30,
+  "Claude Pro": 20,
+  "GitHub Copilot": 10,
+};
+
 export default function Home() {
   const [tool, setTool] = useState("ChatGPT Plus");
-  const [spend, setSpend] = useState("");
   const [teamSize, setTeamSize] = useState("");
   const [result, setResult] = useState("");
 
   const runAudit = () => {
-    const spendNum = Number(spend);
-    const teamNum = Number(teamSize);
+    const users = Number(teamSize);
+    const currentCost = pricing[tool as keyof typeof pricing] * users;
 
-    if (tool === "ChatGPT Team" && teamNum <= 2) {
-      setResult(
-        `You're likely overspending. ChatGPT Plus may be enough for your small team. Estimated savings: $30/month`
-      );
-    } else if (spendNum > 100) {
-      setResult(
-        `Your AI spend is quite high. Consider cheaper plans or vendor credits.`
-      );
-    } else {
-      setResult(`Your current setup looks reasonable.`);
+    let recommendedPlan = tool;
+    let newCost = currentCost;
+    let reason = "Your setup looks good.";
+
+    if (tool === "ChatGPT Team" && users <= 2) {
+      recommendedPlan = "ChatGPT Plus";
+      newCost = 20 * users;
+      reason = "Small teams usually don't need Team plan features.";
     }
+
+    const monthlySavings = currentCost - newCost;
+    const yearlySavings = monthlySavings * 12;
+
+    setResult(`
+Current monthly spend: $${currentCost}
+
+Recommended: ${recommendedPlan}
+
+Estimated monthly savings: $${monthlySavings}
+
+Estimated yearly savings: $${yearlySavings}
+
+Reason: ${reason}
+`);
   };
 
   return (
@@ -34,7 +53,7 @@ export default function Home() {
         </h1>
 
         <p className="text-sm text-gray-500 text-center mb-5">
-          Check if you're overspending on AI tools
+          AI spend audit for startups
         </p>
 
         <select
@@ -47,14 +66,6 @@ export default function Home() {
           <option>Claude Pro</option>
           <option>GitHub Copilot</option>
         </select>
-
-        <input
-          type="number"
-          placeholder="Monthly spend ($)"
-          value={spend}
-          onChange={(e) => setSpend(e.target.value)}
-          className="w-full p-2 border rounded mb-3"
-        />
 
         <input
           type="number"
@@ -72,8 +83,8 @@ export default function Home() {
         </button>
 
         {result && (
-          <div className="mt-5 p-3 bg-gray-100 rounded">
-            <p>{result}</p>
+          <div className="mt-5 whitespace-pre-line p-4 bg-gray-100 rounded">
+            {result}
           </div>
         )}
       </div>
