@@ -1,6 +1,5 @@
 ## Day 1 — 2026-05-06
 
-Hours worked: 3
 
 What I did:
 Created Next.js project, built basic UI for SpendScope, and pushed code to GitHub.
@@ -17,8 +16,6 @@ Start building audit engine (core logic of the app).
 
 ## Day 2 — 2026-05-07
 
-Hours worked:3
-
 What I did:
 Added audit logic with tool selection dropdown and dynamic result generation based on team size and spend.
 
@@ -30,3 +27,18 @@ Need to improve audit recommendations with better pricing logic.
 
 Plan for tomorrow:
 Add real pricing data and improve audit calculations.
+
+## Day 3 — 2026-05-08
+
+
+What I did:
+Added pricing calculations, yearly savings estimates, and improved audit recommendations.
+
+What I learned:
+How to calculate dynamic pricing and generate smarter audit results.
+
+Blockers / what I'm stuck on:
+Need more realistic pricing comparisons and persistent form storage.
+
+Plan for tomorrow:
+Add local storage and improve result page UI.
