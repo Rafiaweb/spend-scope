@@ -42,3 +42,18 @@ Need more realistic pricing comparisons and persistent form storage.
 
 Plan for tomorrow:
 Add local storage and improve result page UI.
+
+## Day 4 — 2026-05-09
+
+
+What I did:
+Improved the UI with better result cards and added localStorage support to preserve form data across refreshes.
+
+What I learned:
+How to use localStorage with React hooks and improve visual hierarchy in a UI.
+
+Blockers / what I'm stuck on:
+Need to support more AI tools and improve the recommendation engine.
+
+Plan for tomorrow:
+Add email capture and connect a backend database.
