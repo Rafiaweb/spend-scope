@@ -57,3 +57,18 @@ Need to support more AI tools and improve the recommendation engine.
 
 Plan for tomorrow:
 Add email capture and connect a backend database.
+
+## Day 5 — 2026-05-10
+
+
+What I did:
+Added email capture and save-audit flow with localStorage support and success feedback UI.
+
+What I learned:
+How to manage multiple form states and improve user flow after audit generation.
+
+Blockers / what I'm stuck on:
+Need a real backend and public shareable audit links.
+
+Plan for tomorrow:
+Add shareable audit URLs and improve landing page polish.
