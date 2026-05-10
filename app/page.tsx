@@ -12,6 +12,9 @@ const pricing = {
 export default function Home() {
   const [tool, setTool] = useState("ChatGPT Plus");
   const [teamSize, setTeamSize] = useState("");
+  const [email, setEmail] = useState("");
+  const [saved, setSaved] = useState(false);
+
   const [result, setResult] = useState<any>(null);
 
   useEffect(() => {
@@ -53,6 +56,14 @@ export default function Home() {
       yearlySavings,
       reason,
     });
+  };
+
+  const saveAudit = () => {
+    if (!email) return;
+
+    localStorage.setItem("savedEmail", email);
+
+    setSaved(true);
   };
 
   return (
@@ -98,7 +109,9 @@ export default function Home() {
           <div className="mt-6 space-y-4">
 
             <div className="bg-gray-100 p-4 rounded-2xl">
-              <p className="text-sm text-gray-500">Current Monthly Spend</p>
+              <p className="text-sm text-gray-500">
+                Current Monthly Spend
+              </p>
               <h2 className="text-2xl font-bold">
                 ${result.currentCost}
               </h2>
@@ -129,6 +142,33 @@ export default function Home() {
               <p className="font-medium">
                 {result.reason}
               </p>
+            </div>
+
+            <div className="bg-white border p-4 rounded-2xl">
+              <p className="font-semibold mb-3">
+                Save your audit report
+              </p>
+
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full p-3 border rounded-xl mb-3"
+              />
+
+              <button
+                onClick={saveAudit}
+                className="w-full bg-black text-white py-3 rounded-xl"
+              >
+                Save Audit
+              </button>
+
+              {saved && (
+                <p className="text-green-600 mt-3 text-sm">
+                  Audit saved successfully.
+                </p>
+              )}
             </div>
 
           </div>
