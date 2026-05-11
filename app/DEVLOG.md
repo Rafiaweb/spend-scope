@@ -72,3 +72,17 @@ Need a real backend and public shareable audit links.
 
 Plan for tomorrow:
 Add shareable audit URLs and improve landing page polish.
+
+## Day 6 — 2026-05-11
+
+What I did:
+Added shareable audit link feature and improved UI flow to simulate real SaaS behavior.
+
+What I learned:
+How to generate unique IDs and use clipboard API for sharing links.
+
+Blockers / what I'm stuck on:
+Need real routing for shared result pages and backend storage.
+
+Plan for tomorrow:
+Final documentation and submission preparation.

@@ -31,6 +31,7 @@ export default function Home() {
   }, [tool, teamSize]);
 
   const runAudit = () => {
+    const id = Math.random().toString(36).substring(2, 10);
     const users = Number(teamSize);
 
     const currentCost = pricing[tool as keyof typeof pricing] * users;
@@ -50,6 +51,7 @@ export default function Home() {
     const yearlySavings = monthlySavings * 12;
 
     setResult({
+      id,
       currentCost,
       recommendedPlan,
       monthlySavings,
@@ -62,7 +64,6 @@ export default function Home() {
     if (!email) return;
 
     localStorage.setItem("savedEmail", email);
-
     setSaved(true);
   };
 
@@ -109,36 +110,28 @@ export default function Home() {
           <div className="mt-6 space-y-4">
 
             <div className="bg-gray-100 p-4 rounded-2xl">
-              <p className="text-sm text-gray-500">
-                Current Monthly Spend
-              </p>
+              <p className="text-sm text-gray-500">Current Monthly Spend</p>
               <h2 className="text-2xl font-bold">
                 ${result.currentCost}
               </h2>
             </div>
 
             <div className="bg-green-100 p-4 rounded-2xl">
-              <p className="text-sm text-green-700">
-                Estimated Yearly Savings
-              </p>
+              <p className="text-sm text-green-700">Estimated Yearly Savings</p>
               <h2 className="text-3xl font-bold text-green-800">
                 ${result.yearlySavings}
               </h2>
             </div>
 
             <div className="bg-blue-100 p-4 rounded-2xl">
-              <p className="text-sm text-blue-700">
-                Recommended Plan
-              </p>
+              <p className="text-sm text-blue-700">Recommended Plan</p>
               <h2 className="text-xl font-semibold">
                 {result.recommendedPlan}
               </h2>
             </div>
 
             <div className="bg-yellow-100 p-4 rounded-2xl">
-              <p className="text-sm text-yellow-700">
-                Why?
-              </p>
+              <p className="text-sm text-yellow-700">Why?</p>
               <p className="font-medium">
                 {result.reason}
               </p>
